@@ -1,15 +1,15 @@
 # Spring Maven Project
 
-This project is a demonstration of setting up a Spring-based web application using Maven. It includes configuration for a variety of dependencies, such as Spring Core, Hibernate, HSQLDB, and others. The purpose of this project is to provide a practical example of integrating these technologies and managing a project through a version control system.
+This project demonstrates setting up a Spring-based web application using Maven. It includes configuration for various dependencies like Spring Core, Hibernate, HSQLDB, and others. The goal is to provide a practical example of integrating these technologies and managing a project through version control.
 
 ## Features
 
 - **Spring Framework**: Core framework for building web applications.
-- **Hibernate ORM**: For object-relational mapping and database operations.
+- **Hibernate ORM**: Object-relational mapping and database operations.
 - **HSQLDB**: In-memory database for quick setup and testing.
-- **Apache Commons DBCP**: For database connection pooling.
-- **jBCrypt**: For handling password encryption.
-- **Commons BeanUtils**: Utility library for handling Java Beans.
+- **Apache Commons DBCP**: Database connection pooling.
+- **jBCrypt**: Password encryption handling.
+- **Commons BeanUtils**: Utility library for Java Beans.
 
 ## Getting Started
 
@@ -23,7 +23,7 @@ This project is a demonstration of setting up a Spring-based web application usi
 ### Setup
 
 1. **Clone the repository**:
-    ```sh
+    ```bash
     git clone https://github.com/your-username/your-repository.git
     cd your-repository
     ```
@@ -34,7 +34,7 @@ This project is a demonstration of setting up a Spring-based web application usi
     - Navigate to the cloned repository and open it.
 
 3. **Add Dependencies**:
-    Ensure the following dependencies are added to the `pom.xml` file:
+    Ensure the following dependencies are in the `pom.xml` file:
     ```xml
     <dependencies>
         <dependency>
@@ -72,7 +72,7 @@ This project is a demonstration of setting up a Spring-based web application usi
 
 4. **Run Maven Install**:
     Open the integrated terminal in VSCode (`Terminal -> New Terminal`) and execute:
-    ```sh
+    ```bash
     mvn clean install
     ```
 
@@ -92,4 +92,19 @@ This project is a demonstration of setting up a Spring-based web application usi
       <property name="password" value="" />
   </bean>
 
-# Laoratory_5
+## Entities
+
+The project includes several entity classes representing the database structure:
+
+- **Student**: Represents a student, including attributes like first name, last name, date of birth, PESEL, and album number.
+- **DaneKontaktowe**: Represents contact details for a student, including address, email, and phone number.
+- **KontoUzytkownika**: Represents a user account with username, password, and account status.
+- **HistoriaLogowania**: Logs user login attempts, including login time and result.
+- **Zajecia**: Represents classes with attributes like day, start and end time, room number, and type.
+- **Przedmioty**: Represents subjects with name and description.
+- **Wykladowca**: Represents an instructor with first name, last name, and title.
+- **Ksiazka**: Represents a book with title, author, ISBN, and category/location identifiers.
+- **Wypozyczenie**: Represents a book loan, including student, book, and loan dates.
+- **Platnosc**: Represents payments with account ID, amount, and payment dates.
+
+Each entity class is annotated with JPA annotations for ORM mapping and is located in the package `pl.wwsis.sos.model`.
