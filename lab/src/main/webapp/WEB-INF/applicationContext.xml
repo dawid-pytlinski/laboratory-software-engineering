@@ -14,25 +14,25 @@
            http://www.springframework.org/schema/tx
            http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
 
-    <context:component-scan base-package="pl.microblog" />
+    <context:component-scan base-package="pl.wwsis.sos" />
     <context:annotation-config />
 
     <!-- DataSource Bean Configuration -->
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <property name="driverClassName" value="org.postgresql.Driver" />
-        <property name="url" value="jdbc:postgresql://localhost:5432/sos" />
+        <property name="driverClassName" value="org.hsqldb.jdbcDriver" />
+        <property name="url" value="jdbc:hsqldb:mem:sos" />
         <property name="username" value="students" />
-        <property name="password" value="xyz91" />
+        <property name="password" value="@xyz91" />
     </bean>
 
     <!-- EntityManager Factory Bean Configuration -->
     <bean id="entityManagerFactoryBean" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource" />
-        <property name="packagesToScan" value="pl.microblog.model" />
+        <property name="packagesToScan" value="pl.wwsis.sos.model" />
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
                 <property name="showSql" value="false" />
-                <property name="databasePlatform" value="org.hibernate.dialect.PostgreSQL95Dialect" />
+                <property name="databasePlatform" value="org.hibernate.dialect.HSQLDialect" />
             </bean>
         </property>
         <property name="jpaProperties">
@@ -44,6 +44,10 @@
 
     <!-- Enables transactional annotation processing -->
     <tx:annotation-driven />
+
+    <!-- Persistence and Exception Translation -->
+    <bean class="org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor" />
+    <bean class="org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor" />
 
     <!-- Transaction Manager Bean Configuration -->
     <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
