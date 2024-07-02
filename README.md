@@ -1,4 +1,4 @@
-# Spring Maven Project
+~~# Spring Maven Project
 
 This project demonstrates setting up a Spring-based web application using Maven. It includes configuration for various dependencies like Spring Core, Hibernate, HSQLDB, and others. The goal is to provide a practical example of integrating these technologies and managing a project through version control.
 
@@ -108,3 +108,31 @@ The project includes several entity classes representing the database structure:
 - **Platnosc**: Represents payments with account ID, amount, and payment dates.
 
 Each entity class is annotated with JPA annotations for ORM mapping and is located in the package `pl.wwsis.sos.model`.
+
+### Using Bridge Pattern for DAO Layer
+
+DAO (Data Access Object) is a design pattern that separates data access logic from the rest of the application, promoting modularity and easier code management. In the context described, DAO can be implemented using the Bridge pattern, which facilitates the separation of abstraction (interfaces) from implementation (classes).
+
+#### Project Structure
+
+1. **Interface Package**: `com.wwsis.sos.dao`
+   - This package contains interfaces defining methods for data operations. For example, the `StudentDAO` interface could include methods for retrieving, adding, updating, and deleting students.
+
+2. **Implementation Package**: `com.wwsis.sos.dao.impl`
+   - This package contains concrete implementations of DAO interfaces. For example, the `StudentDAOImpl` class implements the `StudentDAO` interface and contains the actual data access logic.
+
+#### Benefits of Using Bridge Pattern
+
+- **Separation of Abstraction and Implementation**: By separating interfaces and implementation classes, it becomes easier to change or extend data access methods without impacting other parts of the application.
+  
+- **Dependency Management**: The Bridge pattern helps manage dependencies between abstract and concrete classes, which is crucial in larger projects.
+
+- **Testing and Component Exchange**: Separation facilitates easier testing of individual components (e.g., by mocking DAO interfaces) and enables swapping implementations without affecting the rest of the system.
+
+#### Example Usage in a Spring Maven Project
+
+In the context of a Spring project using Maven, DAO implemented with the Bridge pattern integrates well with Spring's infrastructure, providing transaction management, error handling, and integration with various data sources (e.g., relational databases, REST APIs).
+
+### Summary
+
+Implementing DAO using the Bridge pattern structures application code, leading to improved readability, easier code management, and greater flexibility in system development. When combined with technologies like Spring and Maven, it creates a solid foundation for Java EE applications.
