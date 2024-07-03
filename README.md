@@ -1,4 +1,4 @@
-~~# Spring Maven Project
+# Spring Maven Project
 
 This project demonstrates setting up a Spring-based web application using Maven. It includes configuration for various dependencies like Spring Core, Hibernate, HSQLDB, and others. The goal is to provide a practical example of integrating these technologies and managing a project through version control.
 
@@ -133,6 +133,7 @@ DAO (Data Access Object) is a design pattern that separates data access logic fr
 
 In the context of a Spring project using Maven, DAO implemented with the Bridge pattern integrates well with Spring's infrastructure, providing transaction management, error handling, and integration with various data sources (e.g., relational databases, REST APIs).
 
-### Summary
+**Implementing DAO**: Using the Bridge pattern structures application code, leading to improved readability, easier code management, and greater flexibility in system development. When combined with technologies like Spring and Maven, it creates a solid foundation for Java EE applications.
 
-Implementing DAO using the Bridge pattern structures application code, leading to improved readability, easier code management, and greater flexibility in system development. When combined with technologies like Spring and Maven, it creates a solid foundation for Java EE applications.
+### Spring Bean Declarations
+To integrate our DAO classes with Spring, we need to declare them as beans in the Spring configuration file. This allows Spring to manage these beans and inject them where needed.
